@@ -1,0 +1,16 @@
+# Large raw data
+data/*.parquet
+
+# Large model files
+models/*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
