@@ -1,10 +1,14 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from pathlib import Path
 from sklearn.preprocessing import LabelEncoder
 from datetime import datetime
 
 st.set_page_config(page_title="NYC Ride Price Comparison App", layout="wide")
+BASE_DIR = Path(__file__).resolve().parents[1]
+DATA_DIR = BASE_DIR / "data"
+MODEL_DIR = BASE_DIR / "models"
 
 st.title("NYC Ride Price Optimizer (Taxi vs Uber vs Lyft)")
 st.write(
@@ -15,12 +19,12 @@ st.write(
 # -----------------------------
 # Load data
 # -----------------------------
-route_summary = pd.read_csv("../data/route_summary.csv")
-demand_summary = pd.read_csv("../data/demand_summary.csv")
-zone_summary = pd.read_csv("../data/zone_summary.csv")
-demand_dataset = pd.read_csv("../data/demand_dataset.csv")
+route_summary = pd.read_csv(DATA_DIR / "route_summary.csv")
+demand_summary = pd.read_csv(DATA_DIR / "demand_summary.csv")
+zone_summary = pd.read_csv(DATA_DIR / "zone_summary.csv")
+demand_dataset = pd.read_csv(DATA_DIR / "demand_dataset.csv")
 
-model = joblib.load("../models/nyc_taxi_demand_model.pkl")
+model = joblib.load(MODEL_DIR / "nyc_taxi_demand_model_compressed.joblib")
 
 # -----------------------------
 # Recreate encoders from training data
