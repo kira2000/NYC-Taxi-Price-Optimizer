@@ -8,7 +8,7 @@ An end-to-end data analytics and machine learning project that predicts ride dem
 
 ## 📊 Project Overview
 
-This project combines historical NYC taxi trip data, KPI-driven analytics, and machine learning to build a demand-aware ride pricing system.
+This project combines historical NYC taxi trip data sourced from AWS Open Data, KPI-driven analytics, and machine learning to build a demand-aware ride pricing system.
 
 Users can select:
 - Pickup zone
@@ -71,7 +71,14 @@ This project solves that by integrating:
 ## 📦 Dataset
 
 **Source:**
-- NYC FHVHV trip dataset
+- NYC Taxi & Limousine Commission (TLC) FHVHV Trip Data
+- Accessed via [Amazon Web Services](https://registry.opendata.aws/) Open Data Registry
+
+**Link:**
+- [https://registry.opendata.aws/nyc-taxi-data/](https://registry.opendata.aws/nyc-tlc-trip-records-pds/)
+
+**Details:**
+The dataset is provided in Parquet format and contains large-scale trip-level records including pickup/dropoff locations, timestamps, fares, driver pay, and trip distances.
 
 **Processing Steps:**
 - Removed invalid and outlier trips
